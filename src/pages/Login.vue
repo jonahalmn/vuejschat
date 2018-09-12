@@ -1,7 +1,7 @@
 <template>
     <div>
         <input type="text" v-model="pseudo">
-        <router-link :to="{ name: 'Messages', params: { pseudo: pseudo }}">Connexion</router-link>
+        <router-link @click.native="createPseudo(pseudo)" :to="{ name: 'Chat', params: { pseudo: pseudo }}">Connexion</router-link>
     </div>
 </template>
 
@@ -10,11 +10,13 @@ export default {
   name: 'Login',
   data () {
     return {
-      pseudo: 'Welcome to Your Vue.js App'
+      pseudo: 'Jonah'
     }
   },
   methods: {
-
+      createPseudo: (pseudo) => { 
+                document.cookie = 'pseudo=' + pseudo
+            }
   }
 }
 </script>

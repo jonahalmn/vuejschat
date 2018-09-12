@@ -1,16 +1,14 @@
 <template>
-    <li>{{ user.username }}</li>
+    
 </template>
-
 
 <script>
     export default {
-        name: 'UserStatus',
+        name: 'MessageBoxInput',
         data() {
             return {
-                
+
             }
-        },
-        props: ['user'],
+        }
     }
 </script>
