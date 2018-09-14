@@ -30,6 +30,7 @@
         text-transform: uppercase;
         font-weight: 700;
         transition: opacity .3s;
+        font-size: 13px;
     }
 
     li.inactive{
