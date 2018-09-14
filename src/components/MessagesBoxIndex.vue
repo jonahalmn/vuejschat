@@ -14,13 +14,13 @@
         <div class="sidebar">
             <div class="img-sidebar-container">
                 <div>
-                    <div class="alt-logo">
-                        <img v-if="!isWhite" src="../assets/alt.png" alt="">
+                    <div v-if="!isWhite" class="alt-logo">
+                        <img  src="../assets/alt.png" alt="">
                         <img class="rotatif" v-if="!isWhite" src="../assets/alt_rot.png" alt="">
                     </div>
                 </div>
                 <img v-if="!isWhite" class="img-sidebar" src="../assets/anim.gif">
-                <img v-else class="img-sidebar" src="../assets/propre.png">
+                <img v-else class="img-sidebar clean" src="../assets/propre.png">
             </div>
         </div>
     </div>
@@ -159,8 +159,13 @@
     .img-sidebar{
         right: 0;
         top: 0;
-        width: 100%;
+        max-width: 100%;
+        max-height: 70%;
         overflow: visible;
+    }
+
+    .img-sidebar.clean{
+        max-height: 100%;
     }
 
     .img-sidebar-container{
