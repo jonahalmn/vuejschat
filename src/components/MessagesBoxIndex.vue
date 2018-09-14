@@ -13,9 +13,6 @@
         </div>
         <div class="sidebar">
             <div class="img-sidebar-container">
-                <div>
-                <img v-if="!isWhite" class="img-sidebar" src="../assets/alt.gif">
-                </div>
                 <img v-if="!isWhite" class="img-sidebar" src="../assets/anim.gif">
                 <img v-else class="img-sidebar" src="../assets/propre.png">
             </div>
