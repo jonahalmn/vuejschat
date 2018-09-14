@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Home from '@/pages/Home'
-import Login from '@/pages/Login'
+import Login from '@/components/Login'
 import Chat from '@/pages/Chat'
 
 Vue.use(Router)
@@ -14,8 +14,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Login',
-      component: Login
+      name: 'Chat',
+      component: Chat
     },
     {
       path: '/chat',
