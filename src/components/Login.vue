@@ -7,8 +7,8 @@
             <button @click="$emit('sendPseudo',pseudo)">GO ! </button>
           </div>
             <div class="hint-container">
-              <p>BULB</p>
-              <p>Truc de ouf sur l'application</p>
+              <img src="../assets/ampoule.gif" alt="">
+              <p>Cette application de ouf dispose d'un mode propre pour tromper ton patron et tes professeurs</p>
             </div>
         </div>
     </div>
@@ -59,6 +59,11 @@ export default {
     font-family: 'Roboto Mono'
   }
 
+  .hint-container p{
+    width: 300px;
+    font-size: 14px;
+  }
+
   .intro button{
     background: #75faa2;
     border: 0;
@@ -68,15 +73,21 @@ export default {
     border-radius: 5px;
   }
 
+  .hint-container img{
+    height: 70px;
+    width: 70px;
+  }
+
   .login-content{
     border-radius: 10px;
-    background: #1d1d1d;
+    background: #1f1f1f;
   }
 
   .hint-container{
     padding: 50px 100px;
     background: #1d1d1d;
     border-radius: 6px;
+    padding-top: 0px;
   }
 
   .login-content h2{

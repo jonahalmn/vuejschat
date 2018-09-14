@@ -5,7 +5,7 @@
             <ul class="messages-list">
                     <div id='scrollable-index'>
                         <MessageBox 
-                            v-for="message in messages"
+                            v-for="message in messagesToDisplay"
                             v-bind:message="message" />
                     </div>
             </ul>
@@ -13,7 +13,11 @@
         </div>
         <div class="sidebar">
             <div class="img-sidebar-container">
-                <img class="img-sidebar" src="../assets/anim.gif">
+                <div>
+                <img v-if="!isWhite" class="img-sidebar" src="../assets/alt.gif">
+                </div>
+                <img v-if="!isWhite" class="img-sidebar" src="../assets/anim.gif">
+                <img v-else class="img-sidebar" src="../assets/propre.png">
             </div>
         </div>
     </div>
@@ -41,8 +45,17 @@
         computed: {
             ...Vuex.mapGetters([
                 'messages',
-                'isWhite'
-            ])
+                'isWhite',
+                'currentUser'
+            ]),
+
+            messagesToDisplay(){
+                if(this.isWhite){
+                    return [{sender: "Collègue Serieux", message:"Bonjour, nous avons beaucoup de travail"},{sender: "Collègue de ouf", message:"Le patron est vraiment très sympathique"},{sender: "Manager", message:"Continuez votre boulot, ça va etre un beau projet"},{sender: this.currentUser, message:"Arrêtons de chatter, et travaillons, encore plus"},]
+                }else{
+                    return this.messages
+                }
+            },
         },
         watch: {
             messages () {
