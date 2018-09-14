@@ -12,7 +12,9 @@
             <MessageForm />
         </div>
         <div class="sidebar">
-            <h3>CHATROOM</h3>
+            <div class="img-sidebar-container">
+                <img class="img-sidebar" src="../assets/anim.gif">
+            </div>
         </div>
     </div>
 </template>
@@ -57,7 +59,7 @@
 <style lang="css" scoped>
     .main-div{
         width: 100%;
-        background: #2e2e2e;
+        background: #3d3939;
         display: flex;
         justify-content: flex-start;
     }
@@ -65,9 +67,9 @@
     .gradient{
         position: absolute;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2e2e2e+0,2e2e2e+100&1+0,1+67,0+100 */
-        background: -moz-linear-gradient(top, rgba(46,46,46,1) 0%, rgba(46,46,46,0.9) 50%, rgba(46,46,46,0) 100%);
-        background: -webkit-linear-gradient(top, rgba(46,46,46,1) 0%,rgba(46,46,46,0.9) 50%,rgba(46,46,46,0) 100%);
-        background: linear-gradient(to bottom, rgba(46,46,46,1) 0%,rgba(46,46,46,0.9) 50%,rgba(46,46,46,0) 100%);
+        background: -moz-linear-gradient(top, rgba(61,57,57,1) 0%, rgba(61,57,57,0.9) 50%, rgba(61,57,57,0) 100%);
+        background: -webkit-linear-gradient(top, rgba(61,57,57,1) 0%,rgba(61,57,57,0.9) 50%,rgba(61,57,57,0) 100%);
+        background: linear-gradient(to bottom, rgba(61,57,57,1) 0%,rgba(61,57,57,0.9) 50%,rgba(61,57,57,0) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e2e2e', endColorstr='#002e2e2e',GradientType=0 );
         height: 28vh;
         width: 100%;
@@ -103,7 +105,21 @@
 
     .sidebar{
         width: 30%;
-        position: relative
+        position: relative;
+        overflow: visible;
+    }
+
+    .img-sidebar{
+        right: 0;
+        top: 0;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .img-sidebar-container{
+        height: 100vh;
+        display: flex;
+        align-items:center;
     }
 
     .sidebar h3{

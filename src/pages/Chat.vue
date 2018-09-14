@@ -5,6 +5,9 @@
                 </transition>
                 <UserStatusBar />
                 <MessagesBoxIndex />
+                <transition name="show-hint">
+                    <Hint v-if="popupVisible" :name="currentUser" message="Appuies sur Alt pour passer en mode propre" />
+                </transition>
             </div>
 </template>
 
@@ -16,6 +19,7 @@
     import TheHeader from '@/components/TheHeader'
     import Vuex from 'vuex'
     import Login from '@/components/Login'
+    import Hint from '@/components/Hint'
 
     export default {
 
@@ -25,6 +29,7 @@
             return {
                 pseudo: 'Guest',
                 loggedIn: false,
+                popupVisible: false,
             }
         },
         methods: {
@@ -40,11 +45,23 @@
                 this.toggleLoggedIn()
                 //this.setPseudo(cookieGetter('pseudo'))
                 this.setPseudo(pseudo)
+                this.seeHint()
             },
             switchMode (){
                 this.toggleMode()
+            },
+            seeHint(){
+                this.popupVisible = true
+                setTimeout(
+                () => {
+                    this.popupVisible = false
+                }, 3000)
             }
         },
+        computed: {
+            ...Vuex.mapGetters(['currentUser'])
+        }
+        ,
         mounted() {
             //console.log(cookieGetter('pseudo'))
             if(cookieGetter('pseudo')){
@@ -57,7 +74,7 @@
             })
         }
         ,
-        components: { UserStatusBar, MessagesBoxIndex, TheHeader, Login}
+        components: { UserStatusBar, MessagesBoxIndex, TheHeader, Login, Hint}
     }
 
 </script>
@@ -75,5 +92,33 @@
 
     .popup-leave-active{
         transition: all .6s;
+    }
+
+    .show-hint-enter{
+        transform: translateY(120px);
+        opacity:0
+    }
+
+    .show-hint-enter-to{
+        transform: translateY(0px);
+        opacity:1
+    }
+
+    .show-hint-enter-active{
+        transition: all 1s;
+    }
+
+    .show-hint-leave-to{
+        transform: translateY(120px);
+        opacity:0
+    }
+
+    .show-hint-leave{
+        transform: translateY(0px);
+        opacity:1
+    }
+
+    .show-hint-leave-active{
+        transition: all 1s;
     }
 </style>

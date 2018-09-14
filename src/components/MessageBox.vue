@@ -54,6 +54,7 @@
         border-radius: 5px;
         font-family: 'Roboto Mono';
         font-size: 13px;
+        word-break: break-all;
     }
 
     .white.message-content{
