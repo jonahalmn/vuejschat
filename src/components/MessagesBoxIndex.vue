@@ -13,6 +13,12 @@
         </div>
         <div class="sidebar">
             <div class="img-sidebar-container">
+                <div>
+                    <div class="alt-logo">
+                        <img v-if="!isWhite" src="../assets/alt.png" alt="">
+                        <img class="rotatif" v-if="!isWhite" src="../assets/alt_rot.png" alt="">
+                    </div>
+                </div>
                 <img v-if="!isWhite" class="img-sidebar" src="../assets/anim.gif">
                 <img v-else class="img-sidebar" src="../assets/propre.png">
             </div>
@@ -67,6 +73,23 @@
 </script>
 
 <style lang="css" scoped>
+
+    @keyframes rotate{
+        0%{
+            transform: rotate(0deg)
+        }
+
+
+        100%{
+            transform: rotate(360deg)
+        }
+    }
+
+    .rotatif{
+        animation: rotate 6s infinite;
+        transform-origin: center;
+    }
+
     .main-div{
         width: 100%;
         background: #3d3939;
@@ -82,6 +105,20 @@
         background: linear-gradient(to bottom, rgba(61,57,57,1) 0%,rgba(61,57,57,0.9) 50%,rgba(61,57,57,0) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2e2e2e', endColorstr='#002e2e2e',GradientType=0 );
         height: 28vh;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .alt-logo{
+        position: relative;
+        height: 130px;
+        width: 130px;
+    }
+
+    .alt-logo img{
+        position: absolute;
+        height: 100%;
         width: 100%;
         left: 0;
         top: 0;
@@ -130,6 +167,8 @@
         height: 100vh;
         display: flex;
         align-items:center;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .sidebar h3{

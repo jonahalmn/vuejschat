@@ -85,7 +85,7 @@ export default {
 
   .hint-container{
     padding: 50px 100px;
-    background: #1d1d1d;
+    background: #1f1f1f;
     border-radius: 6px;
     padding-top: 0px;
   }
